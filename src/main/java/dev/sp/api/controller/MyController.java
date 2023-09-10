@@ -30,12 +30,10 @@ public class MyController {
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
         String currentDay = sdf.format(new Date());
 
-       // Get current UTC time
-        Instant currentUtcInstant = Instant.now();
-        // Add 2 hours to the UTC time to get south african time
-//        Instant utcTimePlus2Hours = currentUtcInstant.plus(2, ChronoUnit.HOURS);
-        // Convert the Instant to a LocalDateTime for formatting
-        LocalDateTime utcTime = ZonedDateTime.ofInstant(currentUtcInstant, ZoneId.of("UTC")).toLocalDateTime();
+        // Get current UTC time
+        SimpleDateFormat utcSdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        utcSdf.setTimeZone(java.util.TimeZone.getTimeZone("UTC"));
+        String utcTime = utcSdf.format(new Date());
 
         // Construct the response
         Map<String, Object> response = new HashMap<>();
