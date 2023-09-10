@@ -33,9 +33,9 @@ public class MyController {
        // Get current UTC time
         Instant currentUtcInstant = Instant.now();
         // Add 2 hours to the UTC time to get south african time
-        Instant utcTimePlus2Hours = currentUtcInstant.plus(2, ChronoUnit.HOURS);
+//        Instant utcTimePlus2Hours = currentUtcInstant.plus(2, ChronoUnit.HOURS);
         // Convert the Instant to a LocalDateTime for formatting
-        LocalDateTime utcTime = ZonedDateTime.ofInstant(utcTimePlus2Hours, ZoneId.of("UTC")).toLocalDateTime();
+        LocalDateTime utcTime = ZonedDateTime.ofInstant(currentUtcInstant, ZoneId.of("UTC")).toLocalDateTime();
 
         // Construct the response
         Map<String, Object> response = new HashMap<>();
